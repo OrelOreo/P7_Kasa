@@ -1,0 +1,22 @@
+.banner {
+    background: url("../assets/IMG.png"), url("../assets/Background.png");
+    background-position: center;
+    background-size: cover;
+    border-radius: 25px;
+    width: 80%;
+    height: 220px;
+    margin: 0 auto;
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+section {
+    width: 1240px;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 30px;
+    background: rgb(246, 246, 246);
+}
