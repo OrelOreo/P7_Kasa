@@ -3,7 +3,7 @@
     background-position: center;
     background-size: cover;
     border-radius: 25px;
-    width: 80%;
+    width: 1240px;
     height: 220px;
     margin: 0 auto;
     margin-top: 30px;
@@ -19,4 +19,7 @@ section {
     margin: 0 auto;
     margin-top: 30px;
     background: rgb(246, 246, 246);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

@@ -1,8 +1,10 @@
 import React from 'react'
 import Header from '../../Components/Header'
+import Card from '../../Components/Card'
 import '../../Styles/Home.css'
 
 export default function Home() {
+
   return (
     <div>
         <Header />
@@ -10,7 +12,7 @@ export default function Home() {
             <h1>Chez vous, partout et ailleurs</h1>
         </div>
         <section>
-            <div>TOTO</div>
+          <Card />
         </section>
     </div>
   )
