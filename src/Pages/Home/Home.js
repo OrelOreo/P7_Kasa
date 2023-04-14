@@ -1,7 +1,8 @@
 import React from 'react'
-import Header from '../../Components/Header'
-import Card from '../../Components/Card'
-import '../../Styles/Home.css'
+import Header from '../../Components/Header/Header'
+import Card from "../../Components/Card/Card"
+import Footer from "../../Components/Footer/Footer"
+import './Home.css'
 
 export default function Home() {
 
@@ -14,6 +15,7 @@ export default function Home() {
         <section>
           <Card />
         </section>
+        <Footer />
     </div>
   )
 }

@@ -1,16 +1,20 @@
 import Home from './Pages/Home/Home';
 import About from './Pages/About/About'
+import PageProduit from './Pages/PageProduit/PageProduit';
 import PageNotFound from './Pages/PageNotFound/PageNotFound';
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, BrowserRouter } from "react-router-dom"
 
 function App() {
   return (
-    <div className="App">
-      <Routes>
-        <Route path='/' element={<Home />}/>
-        <Route path='/about' element={<About />} />
-        <Route path='*' element={<PageNotFound />} />
-      </Routes>
+    <div className="App"> 
+     <BrowserRouter>
+          <Routes>
+            <Route path='/home' element={<Home />}/>
+            <Route path='/home/:slug' element={<PageProduit />}/>
+            <Route path='/about' element={<About />} />
+            <Route path='/*' element={<PageNotFound />}/>
+          </Routes>
+      </BrowserRouter>
     </div>
   );
 }

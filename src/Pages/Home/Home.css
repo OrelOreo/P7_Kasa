@@ -1,5 +1,5 @@
 .banner {
-    background: url("../assets/IMG.png"), url("../assets/Background.png");
+    background: url("../../assets/IMG.png"), url("../../assets/Background.png");
     background-position: center;
     background-size: cover;
     border-radius: 25px;
