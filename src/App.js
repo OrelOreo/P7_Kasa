@@ -9,8 +9,8 @@ function App() {
     <div className="App"> 
      <BrowserRouter>
           <Routes>
-            <Route path='/home' element={<Home />}/>
-            <Route path='/home/:slug' element={<PageProduit />}/>
+            <Route path='/' element={<Home />}/>
+            <Route path='/:slug' element={<PageProduit />}/>
             <Route path='/about' element={<About />} />
             <Route path='/*' element={<PageNotFound />}/>
           </Routes>

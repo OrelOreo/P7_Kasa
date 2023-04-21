@@ -1,8 +1,9 @@
 .dropdown {
-    max-width: 1000px;
+    /* max-width: 1000px; */
+    width: 580px;
     height: auto;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    margin: 100px auto 0;
+    /* margin: 30px auto 0; */
     border-radius: 5px;
 }
 

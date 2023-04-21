@@ -3,7 +3,10 @@ import ChevronDown from "../../assets/Vector.png"
 import ChevronUp from "../../assets/vector-haut.png"
 import './Dropdown.css'
 
-export default function Dropdown() {
+export default function Dropdown(props) {
+    // const equipements = props.state
+    // console.log(equipements)
+
 
     const [toggle, setToggle] = useState(false)
     const [heightEl, setHeightEl] = useState()
@@ -24,11 +27,11 @@ export default function Dropdown() {
   return (
     <div className='dropdown'>
         <div onClick={toggleState} className="dropdown-visible">
-            <h2>Lorem ipsum dolor sit amet.</h2>
+            <h2>{props.title}</h2>
             <img src={stateImage ? ChevronUp : ChevronDown } alt="chevron down / up" />
         </div>
         <div ref={refHeight} className={toggle ? 'dropdown-toggle animated' : 'dropdown-toggle'} style={{height: toggle ? `${heightEl}` : '0px'}}>
-            <p aria-hidden={toggle ? "true" : "false"}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, illo distinctio fugiat similique beatae assumenda molestias asperiores nisi quam rerum?</p>
+            <p aria-hidden={toggle ? "true" : "false"}>{ props.state }</p>
         </div>
     </div>
   )
