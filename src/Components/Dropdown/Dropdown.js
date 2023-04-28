@@ -4,9 +4,6 @@ import ChevronUp from "../../assets/vector-haut.png"
 import './Dropdown.css'
 
 export default function Dropdown(props) {
-    // const equipements = props.state
-    // console.log(equipements)
-
 
     const [toggle, setToggle] = useState(false)
     const [heightEl, setHeightEl] = useState()

@@ -6,6 +6,7 @@ import Header from "../../Components/Header/Header"
 import Footer from "../../Components/Footer/Footer"
 import BtnSlider from '../../Components/BtnSlider/BtnSlider'
 import Star from "../../assets/star.png"
+import StarFill from "../../assets/star-fill.png"
 import './PageProduit.css'
 
 export default function PageProduit() {
@@ -54,11 +55,21 @@ export default function PageProduit() {
               <h2>{ location.state.title }</h2>
               <p>{ location.state.location }</p>
             </div>
-            <div className="profil">
-              <p> { location.state.host.name }</p>
-              <img src={ location.state.host.picture} alt="profil du vendeur"/>
+            <div className="stars-info-profil">
+              <div className="profil">
+                <p> { location.state.host.name }</p>
+                <img src={ location.state.host.picture} alt="profil du vendeur"/>
+              </div>
+              <div className="ratings">
+                <img src={StarFill} alt="star" />
+                <img src={StarFill} alt="star" />
+                <img src={StarFill} alt="star" />
+                <img src={StarFill} alt="star" />
+                <img src={StarFill} alt="star" />
+              </div>
             </div>
           </div>
+            
           <div className="container-tags-ratings">
             <div className="tags">
               {
@@ -68,9 +79,6 @@ export default function PageProduit() {
                   )
                 })
               }
-            </div>
-            <div className="ratings">
-
             </div>
           </div>
           <div className='container-dropdowns'>

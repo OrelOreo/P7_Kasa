@@ -111,9 +111,56 @@
     margin-bottom: 80px;
 }
 
+.stars-info-profil {
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 span {
     position: absolute;
     bottom: 10px;
     color: white;
     left: 50%;
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .container-slider {
+        height: 255px;
+        margin-top: 40px;
+    }
+    .container-infos {
+        flex-direction: column;
+    }
+    .container-infos h2 {
+        font-size: 18px;
+    }
+    .location {
+        width: 90%;
+    }
+    .container-dropdowns {
+        flex-direction: column;
+        align-items: center;
+    }
+    .btn-slide img {
+        width: 20px;
+        height: 30px;
+    }
+    .prev {
+        left: 0px;
+    }
+    .next {
+        right: 0px;
+    }
+    .profil {
+        justify-content: flex-end;
+    }
+    .profil p {
+        text-align: center;
+    }
+    .profil img {
+        width: 32px;
+        height: 32px;
+    }
 }
