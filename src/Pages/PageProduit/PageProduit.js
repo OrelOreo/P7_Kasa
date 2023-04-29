@@ -5,15 +5,18 @@ import { useState } from 'react'
 import Header from "../../Components/Header/Header"
 import Footer from "../../Components/Footer/Footer"
 import BtnSlider from '../../Components/BtnSlider/BtnSlider'
-import Star from "../../assets/star.png"
+import StarEmpty from "../../assets/star-empty.png"
 import StarFill from "../../assets/star-fill.png"
 import './PageProduit.css'
 
 export default function PageProduit() {
+  const [slideIndex, setSlideIndex] = useState(1)
 
   const location = useLocation()
   const tags = location.state.tags
-  const [slideIndex, setSlideIndex] = useState(1)
+
+  const rateRange = [1,2,3,4,5]
+  const rateValue = location.state.rating
 
   const nextSlide = () => {
     if (slideIndex !== location.state.pictures.length) {
@@ -61,16 +64,16 @@ export default function PageProduit() {
                 <img src={ location.state.host.picture} alt="profil du vendeur"/>
               </div>
               <div className="ratings">
-                <img src={StarFill} alt="star" />
-                <img src={StarFill} alt="star" />
-                <img src={StarFill} alt="star" />
-                <img src={StarFill} alt="star" />
-                <img src={StarFill} alt="star" />
+                {
+                  rateRange.map((rangeElem) => 
+                    rateValue >= rangeElem ?
+                    <img key={rangeElem.toString()} src={StarFill} alt='étoile remplie' /> :
+                    <img key={rangeElem.toString()} src={StarEmpty} alt='etoile vide' />
+                  )
+                }
               </div>
             </div>
-          </div>
-            
-          <div className="container-tags-ratings">
+          </div>          
             <div className="tags">
               {
                 tags.map((tag, index) => {
@@ -80,7 +83,6 @@ export default function PageProduit() {
                 })
               }
             </div>
-          </div>
           <div className='container-dropdowns'>
             <Dropdown title={"Description"} state={location.state.description} />
             <Dropdown title={"Équipements"} state={location.state.equipments} />
