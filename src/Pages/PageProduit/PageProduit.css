@@ -6,7 +6,7 @@
 
 .container-slider {
     height: 415px;
-    margin: 100px auto 0;
+    margin:  30px auto 0;
     position: relative;
     overflow: hidden;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
@@ -67,9 +67,38 @@
     transform: translateY(-60%);
 }
 
-.container-infos {
+.container {
     display: flex;
     justify-content: space-between;
+}
+
+.localisation h2 {
+    font-size: 36px;
+    font-weight: 500;
+}
+
+.tags {
+    display: flex;
+}
+
+.tag {
+    background-color: #FF6060;
+    color: white;
+    margin-right: 5px;
+    width: 115px;
+    height: 25px;
+    border-radius: 10px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stars-info-profil {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 19px;
 }
 
 .profil {
@@ -77,45 +106,23 @@
     align-items: center;
 }
 
-.profil p {
-    width: 90px;
-}
-
 .profil img {
+    margin-left: 10px;
     border-radius: 50%;
     width: 64px;
     height: 64px;
 }
 
-.tags {
+.ratings {
     display: flex;
-    max-width: 360px;
-}
-
-.tag {
-    background-color: #FF6060;
-    border-radius: 10px;
-    color: white;
-    width: 115px;
-    height: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 14px;
-    margin-right: 5px;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
 .container-dropdowns {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 80px;
-}
-
-.stars-info-profil {
-    height: 140px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    margin-bottom: 100px;
 }
 
 span {
@@ -125,42 +132,46 @@ span {
     left: 50%;
 }
 
+
 @media screen and (min-width: 320px) and (max-width: 768px) {
     .container-slider {
         height: 255px;
-        margin-top: 40px;
-    }
-    .container-infos {
-        flex-direction: column;
-    }
-    .container-infos h2 {
-        font-size: 18px;
-    }
-    .location {
-        width: 90%;
-    }
-    .container-dropdowns {
-        flex-direction: column;
-        align-items: center;
     }
     .btn-slide img {
         width: 20px;
         height: 30px;
     }
     .prev {
-        left: 0px;
+        left: 0;
     }
     .next {
-        right: 0px;
+        right: 0;
     }
-    .profil {
-        justify-content: flex-end;
-    }
-    .profil p {
-        text-align: center;
-    }
-    .profil img {
-        width: 32px;
-        height: 32px;
-    }
+   .container {
+    flex-direction: column;
+   }
+   .container-dropdowns {
+    flex-direction: column;
+    align-items: center;
+   }
+   .stars-info-profil {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0;
+   }
+   .ratings {
+    margin: 0;
+   }
+   .ratings img {
+    width: 13px;
+    height: 13px;
+   }
+   .profil img {
+    width: 32px;
+    height: 32px;
+   }
+   .localisation h2 {
+    font-size: 18px;
+   }
 }

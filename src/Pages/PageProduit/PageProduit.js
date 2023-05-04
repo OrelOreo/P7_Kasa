@@ -2,6 +2,7 @@ import React from 'react'
 import Dropdown from "../../Components/Dropdown/Dropdown"
 import { useLocation } from 'react-router-dom'
 import { useState } from 'react'
+import PageNotFound from "../PageNotFound/PageNotFound"
 import Header from "../../Components/Header/Header"
 import Footer from "../../Components/Footer/Footer"
 import BtnSlider from '../../Components/BtnSlider/BtnSlider'
@@ -13,8 +14,8 @@ export default function PageProduit() {
   const [slideIndex, setSlideIndex] = useState(1)
 
   const location = useLocation()
-  const tags = location.state.tags
 
+  const tags = location.state.tags
   const rateRange = [1,2,3,4,5]
   const rateValue = location.state.rating
 
@@ -32,63 +33,64 @@ export default function PageProduit() {
       setSlideIndex(location.state.pictures.length)
     }
   }
-
-  return (
-    <div>
-        <Header />
-        <div className="card-content">
-          <div className="container-slider">
-            {
-              location.state.pictures.map((item, index) => {
-                return (
-                  <div className={slideIndex === index + 1 ? "slide active-anim" : "slide"} key={index}>
-                    <img src={item} alt='location' />
-                  </div>
-                )
-              })
-            }
-            <BtnSlider moveSlide={nextSlide} direction={'next'} />
-            <BtnSlider moveSlide={prevSlide} direction={'prev'}/>
-            <span>
-              { slideIndex } / { location.state.pictures.length}
-            </span>
-          </div>
-          <div className="container-infos">
-            <div className="location">
-              <h2>{ location.state.title }</h2>
-              <p>{ location.state.location }</p>
-            </div>
-            <div className="stars-info-profil">
-              <div className="profil">
-                <p> { location.state.host.name }</p>
-                <img src={ location.state.host.picture} alt="profil du vendeur"/>
-              </div>
-              <div className="ratings">
-                {
-                  rateRange.map((rangeElem) => 
-                    rateValue >= rangeElem ?
-                    <img key={rangeElem.toString()} src={StarFill} alt='étoile remplie' /> :
-                    <img key={rangeElem.toString()} src={StarEmpty} alt='etoile vide' />
-                  )
-                }
-              </div>
-            </div>
-          </div>          
-            <div className="tags">
+    return (
+      <div>
+          <Header />
+          <div className="card-content">
+            <div className="container-slider">
               {
-                tags.map((tag, index) => {
+                location.state.pictures.map((item, index) => {
                   return (
-                    <p className='tag' key={index}>{ tag }</p>
+                    <div className={slideIndex === index + 1 ? "slide active-anim" : "slide"} key={index}>
+                      <img src={item} alt='location' />
+                    </div>
                   )
                 })
               }
+              <BtnSlider moveSlide={nextSlide} direction={'next'} />
+              <BtnSlider moveSlide={prevSlide} direction={'prev'}/>
+              <span>
+                { slideIndex } / { location.state.pictures.length}
+              </span>
             </div>
-          <div className='container-dropdowns'>
-            <Dropdown title={"Description"} state={location.state.description} />
-            <Dropdown title={"Équipements"} state={location.state.equipments} />
+            <div className="container">
+              <div>
+                <div className="localisation">
+                  <h2>{ location.state.title }</h2>
+                  <p> { location.state.location }</p>
+                </div>
+                <div className="tags">
+                    {
+                      tags.map((tag, index) => {
+                        return (
+                          <p className='tag' key={index}>{ tag }</p>
+                        )
+                      })
+                    }
+                  </div>
+              </div>
+                <div className="stars-info-profil">
+                  <div className="profil">
+                    <p> { location.state.host.name }</p>
+                    <img src={ location.state.host.picture} alt="profil du vendeur"/>
+                  </div>
+                  <div className="ratings">
+                    {
+                      rateRange.map((rangeElem) => 
+                        rateValue >= rangeElem ?
+                        <img key={rangeElem.toString()} src={StarFill} alt='étoile remplie' /> :
+                        <img key={rangeElem.toString()} src={StarEmpty} alt='etoile vide' />
+                      )
+                    }
+                  </div>            
+                </div>
+            </div>
+            <div className='container-dropdowns'>
+              <Dropdown title={"Description"} state={location.state.description} />
+              <Dropdown title={"Équipements"} state={location.state.equipments} />
+            </div>
           </div>
-        </div>
-        <Footer />
-    </div>
-  )
+          <Footer />
+      </div>
+    )
 }

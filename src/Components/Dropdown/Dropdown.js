@@ -20,16 +20,16 @@ export default function Dropdown(props) {
         setHeightEl(`${refHeight.current.scrollHeight}px`)
     }, [])
 
-
   return (
     <div className='dropdown'>
         <div onClick={toggleState} className="dropdown-visible">
-            <h2>{props.title}</h2>
-            <img src={stateImage ? ChevronUp : ChevronDown } alt="chevron down / up" />
+            <h2>{ props.title }</h2>
+            <img src={stateImage ? ChevronUp : ChevronDown } alt={stateImage ? "Chevron Up" : "Chevron Down"}/>
         </div>
         <div ref={refHeight} className={toggle ? 'dropdown-toggle animated' : 'dropdown-toggle'} style={{height: toggle ? `${heightEl}` : '0px'}}>
             <p aria-hidden={toggle ? "true" : "false"}>{ props.state }</p>
         </div>
     </div>
   )
+
 }
