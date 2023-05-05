@@ -11,7 +11,7 @@ export default function Card() {
         Data.map(item => {
             return (
               <Link className="cardLink" key={ item.id } to={{
-                pathname: `./${ item.id }`
+                pathname: `./logement/${ item.id }`
               }} state={ item }>
                 <div className='card'>
                   <img src={ item.cover } alt="location d'appartement" />

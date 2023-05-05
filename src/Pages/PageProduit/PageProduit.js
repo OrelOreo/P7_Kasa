@@ -1,19 +1,24 @@
 import React from 'react'
 import Dropdown from "../../Components/Dropdown/Dropdown"
-import { useLocation } from 'react-router-dom'
+import { useLocation, Navigate } from 'react-router-dom'
 import { useState } from 'react'
-import PageNotFound from "../PageNotFound/PageNotFound"
 import Header from "../../Components/Header/Header"
 import Footer from "../../Components/Footer/Footer"
 import BtnSlider from '../../Components/BtnSlider/BtnSlider'
 import StarEmpty from "../../assets/star-empty.png"
 import StarFill from "../../assets/star-fill.png"
+import Data from "../../data.json"
 import './PageProduit.css'
 
 export default function PageProduit() {
   const [slideIndex, setSlideIndex] = useState(1)
-
+ 
   const location = useLocation()
+  const pathname = location.pathname.split("/")
+  const id = Data.find(logement => logement.id === pathname[2])
+  if (id === undefined) {
+    return <Navigate to='/404'/>
+  }
 
   const tags = location.state.tags
   const rateRange = [1,2,3,4,5]

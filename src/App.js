@@ -10,7 +10,7 @@ function App() {
      <BrowserRouter>
           <Routes>
             <Route path='/' element={<Home />}/>
-            <Route path='/:id' element={<PageProduit />}/>
+            <Route path='/logement/:id' element={<PageProduit />}/>
             <Route path='/about' element={<About />} />
             <Route path='/404' element={<PageNotFound/>} />
             <Route path='*' element={<Navigate to="/404" replace />}/>
