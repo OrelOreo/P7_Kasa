@@ -91,8 +91,8 @@ export default function PageProduit() {
                 </div>
             </div>
             <div className='container-dropdowns'>
-              <Dropdown title={"Description"} state={location.state.description} />
-              <Dropdown title={"Équipements"} state={location.state.equipments} />
+              <Dropdown title={"Description"} content={location.state.description} />
+              <Dropdown title={"Équipements"} content={location.state.equipments} />
             </div>
           </div>
           <Footer />

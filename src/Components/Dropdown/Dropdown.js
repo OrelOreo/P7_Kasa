@@ -3,7 +3,9 @@ import ChevronDown from "../../assets/Vector.png"
 import ChevronUp from "../../assets/vector-haut.png"
 import './Dropdown.css'
 
-export default function Dropdown(props) {
+export default function Dropdown({ content, title }) {
+
+    const isArray = Array.isArray(content)
 
     const [toggle, setToggle] = useState(false)
     const [heightEl, setHeightEl] = useState()
@@ -17,19 +19,30 @@ export default function Dropdown(props) {
     const refHeight = useRef()
 
     useEffect(() => {
-        setHeightEl(`${refHeight.current.scrollHeight}px`)
+        if (refHeight.current) {
+            setHeightEl(`${refHeight.current.scrollHeight}px`)
+        }
     }, [])
 
   return (
     <div className='dropdown'>
         <div onClick={toggleState} className="dropdown-visible">
-            <h2>{ props.title }</h2>
+            <h2>{ title }</h2>
             <img src={stateImage ? ChevronUp : ChevronDown } alt={stateImage ? "Chevron Up" : "Chevron Down"}/>
         </div>
-        <div ref={refHeight} className={toggle ? 'dropdown-toggle animated' : 'dropdown-toggle'} style={{height: toggle ? `${heightEl}` : '0px'}}>
-            <p aria-hidden={toggle ? "true" : "false"}>{ props.state }</p>
-        </div>
+        {
+            isArray ? (
+                <ul ref={refHeight} className={toggle ? 'dropdown-toggle animated' : 'dropdown-toggle'} style={{height: toggle ? `${heightEl}` : '0px'}}>
+                    {content.map((equipement) => (
+                        <li aria-hidden={toggle ? "true" : "false"} key={equipement}>{equipement}</li>
+                    ))}
+                </ul>
+            ) : (
+                <div className="container-text">
+                    <p ref={refHeight} className={toggle ? 'dropdown-toggle animated' : 'dropdown-toggle'} style={{height: toggle ? `${heightEl}` : '0px'}} aria-hidden={toggle ? "true" : "false"}>{content}</p>
+                </div>
+            )
+        }
     </div>
   )
-
 }
