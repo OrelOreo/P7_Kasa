@@ -25,7 +25,7 @@ export default function Dropdown({ content, title }) {
     }, [])
 
   return (
-    <div className='dropdown'>
+        <div className='dropdown'>
         <div onClick={toggleState} className="dropdown-visible">
             <h2>{ title }</h2>
             <img src={stateImage ? ChevronUp : ChevronDown } alt={stateImage ? "Chevron Up" : "Chevron Down"}/>
@@ -43,6 +43,6 @@ export default function Dropdown({ content, title }) {
                 </div>
             )
         }
-    </div>
+        </div>
   )
 }

@@ -13,7 +13,7 @@ function App() {
             <Route path='/logement/:id' element={<PageProduit />}/>
             <Route path='/about' element={<About />} />
             <Route path='/404' element={<PageNotFound/>} />
-            <Route path='*' element={<Navigate to="/404" replace />}/>
+            <Route path='*' element={<Navigate to="/404" />}/>
           </Routes>
       </BrowserRouter>
     </div>

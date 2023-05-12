@@ -1,17 +1,15 @@
 import React from 'react'
 import Dropdown from "../../Components/Dropdown/Dropdown"
 import { useLocation, Navigate } from 'react-router-dom'
-import { useState } from 'react'
+import Slider from '../../Components/Slider/Slider'
 import Header from "../../Components/Header/Header"
 import Footer from "../../Components/Footer/Footer"
-import BtnSlider from '../../Components/BtnSlider/BtnSlider'
 import StarEmpty from "../../assets/star-empty.png"
 import StarFill from "../../assets/star-fill.png"
 import Data from "../../data.json"
 import './PageProduit.css'
 
 export default function PageProduit() {
-  const [slideIndex, setSlideIndex] = useState(1)
  
   const location = useLocation()
   const pathname = location.pathname.split("/")
@@ -24,40 +22,11 @@ export default function PageProduit() {
   const rateRange = [1,2,3,4,5]
   const rateValue = location.state.rating
 
-  const nextSlide = () => {
-    if (slideIndex !== location.state.pictures.length) {
-      setSlideIndex(slideIndex + 1)
-    } else if(slideIndex === location.state.pictures.length) {
-      setSlideIndex(1)
-    }
-  }
-  const prevSlide = () => {
-    if (slideIndex !== 1) {
-      setSlideIndex(slideIndex - 1)
-    } else if(slideIndex === 1) {
-      setSlideIndex(location.state.pictures.length)
-    }
-  }
     return (
       <div>
           <Header />
           <div className="card-content">
-            <div className="container-slider">
-              {
-                location.state.pictures.map((item, index) => {
-                  return (
-                    <div className={slideIndex === index + 1 ? "slide active-anim" : "slide"} key={index}>
-                      <img src={item} alt='location' />
-                    </div>
-                  )
-                })
-              }
-              <BtnSlider moveSlide={nextSlide} direction={'next'} />
-              <BtnSlider moveSlide={prevSlide} direction={'prev'}/>
-              <span>
-                { slideIndex } / { location.state.pictures.length}
-              </span>
-            </div>
+            <Slider pictures={location.state.pictures} />
             <div className="container">
               <div>
                 <div className="localisation">

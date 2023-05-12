@@ -33,6 +33,7 @@
     font-size: 18px;
     background: #F6F6F6;
     transition:
+    display 0.3s ease-in-out,
     opacity 0.3s ease-in-out,
     height 0.3s 0.3s ease-in-out;
     opacity: 0;
@@ -48,6 +49,7 @@ li {
 .animated {
     opacity: 1;
     transition:
+    display 0.3s ease-in-out,
     height 0.3s ease-in-out,
     opacity 0.3s 0.3s ease-in-out;
 }
@@ -66,7 +68,7 @@ li {
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
     .dropdown {
-        width: 100%;
+        width: 95%;
     }
     .dropdown h2 {
         font-size: 13px;
