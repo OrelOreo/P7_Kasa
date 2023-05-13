@@ -1,5 +1,6 @@
 import React from 'react'
 import BtnSlider from '../BtnSlider/BtnSlider'
+import './Slider.css'
 import { useState } from 'react'
 
 

@@ -1,0 +1,49 @@
+.btn-slide {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.btn-slide .active {
+    display: flex;
+}
+
+.btn-slide .hidden {
+    display: none;
+}
+  
+.btn-slide img {
+    width: 46px;
+    height: 79px;
+    pointer-events: none;
+}
+
+.prev {
+    top: 50%;
+    left: 20px;
+    transform: translateY(-60%);
+}
+.next {
+    top: 50%;
+    right: 20px;
+    transform: translateY(-60%);
+}
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    .btn-slide img {
+        width: 20px;
+        height: 30px;
+    }
+    .prev {
+        left: 0;
+    }
+    .next {
+        right: 0;
+    }
+}
