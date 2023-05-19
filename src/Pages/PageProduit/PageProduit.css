@@ -16,6 +16,7 @@
 
 .tags {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .tag {
@@ -30,6 +31,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
 }
 
 .stars-info-profil {
